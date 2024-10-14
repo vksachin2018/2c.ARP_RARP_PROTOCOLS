@@ -17,10 +17,8 @@ stored.
 5. Map the IP address with its MAC address and return the MAC address to client.
 P
 ## PROGRAM - ARP
-
-## Client
-
-```
+~~~
+CLIENT
 import socket
 s=socket.socket()
 s.bind(('localhost',8000))
@@ -28,38 +26,30 @@ s.listen(5)
 c,addr=s.accept()
 address={"165.165.80.80":"6A:08:AA:C2","165.165.79.1":"8A:BC:E3:FA"};
 while True:
- ip=c.recv(1024).decode()
- try:
- c.send(address[ip].encode())
- except KeyError:
- c.send("Not Found".encode()) 
-```
-## Server
-
-```
+    ip=c.recv(1024).decode()
+    try:
+        c.send(address[ip].encode())
+    except KeyError:
+        c.send("Not Found".encode())
+~~~
+~~~
+SERVER
 import socket
 s=socket.socket()
 s.connect(('localhost',8000))
 while True:
- ip=input("Enter logical Address : ")
- s.send(ip.encode())
- print("MAC Address",s.recv(1024).decode())
-```
+    ip=input("Enter logical Address : ")
+    s.send(ip.encode())
+    print("MAC Address",s.recv(1024).decode())
+~~~
 ## OUPUT - ARP
+![Screenshot 2024-10-01 085805](https://github.com/user-attachments/assets/c88442d1-bb51-4c03-98ef-1766d2a5e3b0)
 
-## Client
-
-![Screenshot 2024-10-01 094343](https://github.com/user-attachments/assets/908164da-f64c-422c-8319-571549fb1f09)
-
-## Server
-
-![Screenshot 2024-10-01 094354](https://github.com/user-attachments/assets/56f333a3-7a5b-4f20-b28e-8bf11e1a3829)
+![Screenshot 2024-10-01 085752](https://github.com/user-attachments/assets/f88ad710-06fd-43f1-b9de-0df62742a240)
 
 ## PROGRAM - RARP
-
-## Client
-
-```
+~~~
+CLIENT
 import socket
 s=socket.socket()
 s.bind(('localhost',9000))
@@ -67,35 +57,26 @@ s.listen(5)
 c,addr=s.accept()
 address={"6A:08:AA:C2":"192.168.1.100","8A:BC:E3:FA":"192.168.1.99"};
 while True:
- ip=c.recv(1024).decode()
- try:
- c.send(address[ip].encode())
- except KeyError:
- c.send("Not Found".encode()) 
-```
-
-## Server
-```
+    ip=c.recv(1024).decode()
+    try:
+        c.send(address[ip].encode())
+    except KeyError:
+        c.send("Not Found".encode())
+~~~
+~~~
+SERVER
 import socket
 s=socket.socket()
 s.connect(('localhost',9000))
 while True:
- ip=input("Enter MAC Address : ")
-REG NO:
- s.send(ip.encode())
- print("Logical Address",s.recv(1024).decode())
-```
-
+    ip=input("Enter MAC Address : ")
+    s.send(ip.encode())
+    print("Logical Address",s.recv(1024).decode())
+~~~
 ## OUPUT -RARP
+![Screenshot 2024-10-01 091814](https://github.com/user-attachments/assets/cd7383f1-cbf4-4a4b-a1b7-16fe18e50561)
 
-## Client
-
-![Screenshot 2024-10-01 094406](https://github.com/user-attachments/assets/deae7784-6588-4cd6-8d63-9d2f01f29d65)
-
-
-## Server
-
-![Screenshot 2024-10-01 094413](https://github.com/user-attachments/assets/3922705b-c810-409d-895d-00f7ba88d195)
+![Screenshot 2024-10-01 091820](https://github.com/user-attachments/assets/81c9f7da-87fb-4fa9-92f7-830dddfb5348)
 
 
 ## RESULT

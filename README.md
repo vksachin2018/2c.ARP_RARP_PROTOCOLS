@@ -1,4 +1,7 @@
 # 2c.SIMULATING ARP /RARP PROTOCOLS
+### DATE: 09/09/2024
+### NAME: GOKUL SACHIN K
+### REGISTER NO: 212223220025
 ## AIM
 To write a python program for simulating ARP protocols using TCP.
 ## ALGORITHM:
